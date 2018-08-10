@@ -9,4 +9,5 @@ void LED1on(void);
 void LED1off(void);
 void LED2on(void);
 void LED2off(void);
-
+void LED3on(void);
+void LED3off(void);

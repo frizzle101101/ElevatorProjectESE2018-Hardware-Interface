@@ -14,7 +14,7 @@ void main(void) {
   unsigned char txBuffer[1]; //single bit transmission, for using with supplied canTX function
   unsigned char buttonStatus1 = 0; //button status of 0 is unpressed, 1 is pressed
   unsigned char buttonStatus2 = 0; //button status of 0 is unpressed, 1 is pressed
-  unsigned char buttonStatus3 = 0; //button status of 0 is unpressed, 1 is pressed
+  //unsigned char buttonStatus3 = 0; //button status of 0 is unpressed, 1 is pressed
   unsigned char rxByte;
 
   txBuffer[0] = 0x03;
@@ -46,12 +46,12 @@ void main(void) {
       LED2on();
       errorflag = CANTx(CAR_TX_ID, 0x00, 1, txBuffer);
     }
-	if ((buttonStatus3 == 0) && (PTS & 0x01) != 0x01) {
+	  /*if ((buttonStatus3 == 0) && (PORTB & 0x01) != 0x01) {
       buttonStatus3 = 1;
       txBuffer[0] = 0x03;
       LED3on();
       errorflag = CANTx(CAR_TX_ID, 0x00, 1, txBuffer);
-    }
+    }*/
 
 
     if (CanRingCheck()) {
@@ -63,11 +63,11 @@ void main(void) {
 
         buttonStatus2 = 0;
         LED2off();
-	} else if ((rxByte - FLOOR_NUM_OFFSET) == 3){
+    	}/* else if ((rxByte - FLOOR_NUM_OFFSET) == 3){
 
         buttonStatus3 = 0;
         LED3off();
-      }
+      }*/
 
       SegDisplay(rxByte - FLOOR_NUM_OFFSET);
 

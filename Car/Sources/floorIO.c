@@ -21,7 +21,7 @@ void floorIOinit(void){
 
    //Pushbutton port J 7, 6 (INPUT)
    DDRJ &= 0x3F;
-   DDRS &= 0xFE;
+   DDRB &= 0x00;
 
 
    //LED port Port S 2, 3 (OUTPUT)
@@ -86,9 +86,9 @@ void LED2off(void){
   PTS &= 0xF7;
 }
 void LED3on(void){
-  PTS |= 0x01;
+  PTS |= 0x02;
 }
 
 void LED3off(void){
-  PTS &= 0xFB;
+  PTS &= 0xFD;
 }
